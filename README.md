@@ -4,13 +4,11 @@ SwiftUI Code39 is a Swift package that provides an easy way to generate Code 39 
 
 ## Installation
 
-To use SwiftUI Code39 in your project, add the following line to your `Package.swift` file:
+To use SwiftUI Code39 in your project:
 
-```swift
-dependencies: [
-    .package(url: "https://github.com/jiahan-wu/swiftui-code39.git", from: "1.0.0")
-]
-```
+1. Xcode > File > Add Package Dependencies
+2. Add `https://github.com/jiahan-wu/swiftui-code39.git`
+3. Select "Up to Next Major Version" with "1.0.0"
 
 Then, import the package in your Swift code:
 

@@ -18,7 +18,7 @@ import Code39
 
 ## Usage
 
-To generate a Code 39 barcode, simply create an instance of `Code39View` and provide the desired content as a string:
+To generate a Code 39 barcode, simply create a `Code39View` and provide the desired content as a string:
 
 ```swift
 struct ContentView: View {

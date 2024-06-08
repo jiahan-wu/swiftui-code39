@@ -74,4 +74,4 @@ func encodeToCode39(_ input: String) -> [BarWidth] {
     return encodedBarcode
 }
 
-public let code39SupportedCharacters: Set<Character> = Set(code39Patterns.keys)
+public let code39SupportedCharacters: Set<Character> = Set(code39Patterns.keys.filter { $0 != "*" })

@@ -17,7 +17,7 @@ public struct Code39View: View {
     
     public var body: some View {
         Canvas { context, size in
-            let intercharacterGapCount = barcode.count % 9
+            let intercharacterGapCount = (barcode.count % 9) - 1
             let narrowBarWidth = size.width / CGFloat(((((barcode.count - intercharacterGapCount) / 9) * 15) + intercharacterGapCount))
             var currentX: CGFloat = 0
             for (index, barWidth) in barcode.enumerated() {

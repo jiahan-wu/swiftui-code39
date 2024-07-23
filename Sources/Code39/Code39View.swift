@@ -9,18 +9,29 @@ import SwiftUI
 
 public struct Code39View: View {
     
-    private let barcode: [BarWidth]
+    public let content: String
     
     public init(_ content: String) {
-        self.barcode = encodeToCode39(content)
+        self.content = content
     }
     
     public var body: some View {
         Canvas { context, size in
-            let intercharacterGapCount = (barcode.count % 9) - 1
-            let narrowBarWidth = size.width / CGFloat(((((barcode.count - intercharacterGapCount) / 9) * 15) + intercharacterGapCount))
+            let prefixSuffixCount = 2
+            
+            let characterCount = content.count + prefixSuffixCount
+            
+            let gapCount = content.count + 1
+            
+            let weightPerCharacter = 15
+            
+            let totalUnits = (characterCount * weightPerCharacter) + gapCount
+            
+            let narrowBarWidth = size.width / CGFloat(totalUnits)
+            
             var currentX: CGFloat = 0
-            for (index, barWidth) in barcode.enumerated() {
+            
+            for (index, barWidth) in encodeToCode39(content).enumerated() {
                 let barColor: Color = index % 2 == 0 ? .black : .white
                 let barWidth: CGFloat = barWidth == .narrow ? narrowBarWidth : narrowBarWidth * 3
                 var barPath = Path()
